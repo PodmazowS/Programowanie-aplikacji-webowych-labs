@@ -1,39 +1,22 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import ProjectStorage from "../api/localStorageAPI";
 import { Project } from "../models/Project";
 
 const ProjectForm: React.FC = () => {
   const [project, setProject] = useState<Project>({ id: "", name: "", description: "" });
   const [projects, setProjects] = useState<Project[]>([]);
-  const [error, setError] = useState<string>("");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setProject({ ...project, [e.target.name]: e.target.value });
-    setError("");
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-
-    if (!project.name.trim() || !project.description.trim()) {
-      setError("Both project name and description are required.");
-      return;
-    }
-
     const newProject = { ...project, id: project.id || String(Date.now()) };
     ProjectStorage.saveProject(newProject);
     setProject({ id: "", name: "", description: "" });
     loadProjects();
-  };
-
-  const handleDelete = (id: string) => {
-    ProjectStorage.deleteProject(id);
-    loadProjects();
-  };
-
-  const handleEdit = (project: Project) => {
-    setProject(project);
-    setError(""); 
   };
 
   const loadProjects = () => {
@@ -48,7 +31,6 @@ const ProjectForm: React.FC = () => {
   return (
     <div>
       <div className="project-form">
-        {error && <div className="error">{error}</div>}
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label htmlFor="name">Project Name:</label>
@@ -81,8 +63,7 @@ const ProjectForm: React.FC = () => {
           <div className="project-item" key={project.id}>
             <h3>{project.name}</h3>
             <p>{project.description}</p>
-            <button onClick={() => handleEdit(project)} className="btn edit">Edit</button>
-            <button onClick={() => handleDelete(project.id)} className="btn delete">Delete</button>
+            <Link to={`/projects/${project.id}`}>View Project</Link>
           </div>
         ))}
       </div>

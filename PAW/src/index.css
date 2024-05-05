@@ -95,8 +95,164 @@ h1 {
 .project-item button {
   margin-right: 10px;
 }
-.error {
-  color: #dc3545;
+.project-page form {
+  margin: 20px 0;
+}
+
+.project-page input, .project-page textarea, .project-page select {
+  width: 100%;
+  padding: 8px;
   margin-bottom: 10px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+
+.add-story-btn {
+  background-color: #28a745;
+}
+
+.add-story-btn:hover {
+  background-color: #218838;
+}
+
+.story-list {
+  margin-top: 20px;
+}
+.project-page {
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 600px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.project-header h1 {
+  margin: 0;
+  font-size: 28px;
+}
+
+.story-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.story-header h2 {
+  margin: 0;
+}
+
+.story-list {
+  margin-top: 20px;
+}
+
+.story-item {
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  background-color: #f9f9f9;
+}
+
+.story-item h3 {
+  margin: 0 0 10px;
   font-weight: bold;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  background-color: #007BFF;
+  color: #fff;
+  text-align: center;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+.back-btn {
+  margin-top: 20px;
+}
+
+.story-item p {
+  margin: 5px 0;
+}
+
+.story-item {
+  margin-bottom: 15px;
+}
+.story-item select {
+  margin-top: 5px;
+  padding: 5px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+.story-item .btn {
+  margin-right: 10px;
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+}
+
+.edit-btn {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.edit-btn:hover {
+  background-color: #0056b3;
+}
+
+.delete-btn {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.delete-btn:hover {
+  background-color: #c82333;
+}
+.story-list {
+  margin-top: 20px;
+}
+
+.story-item .btn {
+  margin-right: 10px;
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+}
+
+.edit-btn {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.edit-btn:hover {
+  background-color: #0056b3;
+}
+
+.delete-btn {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.delete-btn:hover {
+  background-color: #c82333;
+}
+
+.story-filter {
+  margin: 10px 0;
 }
