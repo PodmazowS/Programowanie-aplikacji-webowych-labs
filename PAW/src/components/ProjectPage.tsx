@@ -40,20 +40,24 @@ const ProjectPage: React.FC = () => {
 
   const handleStorySubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const updatedStory = { ...newStory, projectId: projectId || "" };
-    StoryStorage.saveStory(updatedStory);
-
-    const updatedStories = stories.map(story =>
-      story.id === updatedStory.id ? updatedStory : story
-    );
-
-    if (!stories.some(story => story.id === updatedStory.id)) {
-      setStories([...stories, updatedStory]); 
-      setFilteredStories([...stories, updatedStory]);
-    } else {
-      setStories(updatedStories); 
-      setFilteredStories(updatedStories);
+    if (!newStory.name.trim() || !newStory.description.trim()) {
+      alert('Both name and description are required.');
+      return;
     }
+  const storyToAdd = { ...newStory, id: newStory.id || String(Date.now()), projectId: projectId || "" };
+  StoryStorage.saveStory(storyToAdd);
+
+  const updatedStories = stories.map(story =>
+    story.id === storyToAdd.id ? storyToAdd : story
+  );
+
+  if (!stories.some(story => story.id === storyToAdd.id)) {
+    setStories([...stories, storyToAdd]);
+    setFilteredStories([...stories, storyToAdd]);
+  } else {
+    setStories(updatedStories);
+    setFilteredStories(updatedStories.filter(story => statusFilter === "all" || story.state === statusFilter));
+  }
 
     setNewStory({
       id: "",

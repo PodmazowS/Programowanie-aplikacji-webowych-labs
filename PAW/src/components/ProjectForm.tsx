@@ -13,6 +13,10 @@ const ProjectForm: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (!project.name.trim() || !project.description.trim()) {
+      alert('Both name and description are required.');
+      return;
+    }
     const newProject = { ...project, id: project.id || String(Date.now()) };
     ProjectStorage.saveProject(newProject);
     setProject({ id: "", name: "", description: "" });
@@ -22,6 +26,14 @@ const ProjectForm: React.FC = () => {
   const loadProjects = () => {
     const allProjects = ProjectStorage.getAllProjects();
     setProjects(allProjects);
+  };
+  const handleDelete = (id: string) => {
+    ProjectStorage.deleteProject(id);
+    setProjects(prevProjects => prevProjects.filter(p => p.id !== id));
+  };
+
+  const handleEdit = (project: Project) => {
+    setProject(project); 
   };
 
   useEffect(() => {
@@ -64,6 +76,8 @@ const ProjectForm: React.FC = () => {
             <h3>{project.name}</h3>
             <p>{project.description}</p>
             <Link to={`/projects/${project.id}`}>View Project</Link>
+            <button onClick={() => handleEdit(project)} className="btn edit-btn">Edit</button>
+            <button onClick={() => handleDelete(project.id)} className="btn delete-btn">Delete</button>
           </div>
         ))}
       </div>

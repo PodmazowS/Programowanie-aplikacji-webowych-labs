@@ -99,14 +99,20 @@ h1 {
   margin: 20px 0;
 }
 
-.project-page input, .project-page textarea, .project-page select {
+.project-page textarea, .project-page select {
   width: 100%;
   padding: 8px;
   margin-bottom: 10px;
   border-radius: 4px;
   border: 1px solid #ddd;
 }
-
+.project-page input{
+  width: 97%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
 .add-story-btn {
   background-color: #28a745;
 }
@@ -240,8 +246,9 @@ h1 {
   color: #fff;
 }
 
+
 .edit-btn:hover {
-  background-color: #0056b3;
+  background-color: #073f9e;
 }
 
 .delete-btn {
