@@ -116,6 +116,7 @@ const ProjectPage: React.FC = () => {
               <option value="high">High</option>
             </select>
             <button type="submit" className="btn add-story-btn">{newStory.id ? "Update Story" : "Add New Story"}</button>
+            
           </form>
           <div>
             <label>Status Filter: </label>
@@ -146,6 +147,7 @@ const ProjectPage: React.FC = () => {
                 <div>
                   <button onClick={() => handleEdit(story)} className="btn edit-btn">Edit</button>
                   <button onClick={() => handleDelete(story.id)} className="btn delete-btn">Delete</button>
+                  <Link to={`/stories/${story.id}`} className="btn view-btn">View Tasks</Link>
                 </div>
                 
               </div>

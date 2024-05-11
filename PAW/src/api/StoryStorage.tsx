@@ -21,6 +21,9 @@ class StoryStorage {
     stories = stories.filter(s => s.id !== id);
     localStorage.setItem(this.STORAGE_KEY, JSON.stringify(stories));
   }
+  static getStory(id: string): Story | undefined {
+    return this.getAllStories().find(s => s.id === id);
+  }
 }
 
 export default StoryStorage;
