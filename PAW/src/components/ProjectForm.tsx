@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import ProjectStorage from "../api/localStorageAPI";
 import { Project } from "../models/Project";
-
+import LogoutButton from "./GoogleLogout";
 
 
 const ProjectForm: React.FC = () => {
@@ -87,6 +87,7 @@ const ProjectForm: React.FC = () => {
           </div>
         ))}
       </div>
+      <LogoutButton />
     </div>
   );
 };

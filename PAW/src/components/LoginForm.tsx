@@ -1,11 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { gapi} from "gapi-script";
+import LoginButton from './GoogleLogin';
 
 interface LoginFormProps {
     onLoginSuccess?: (data: { token: string; refreshToken: string }) => void;
 }
 
 import { useAuth } from '../AuthContext'; 
+
+const clientId = "157406340808-mi8iup8abk3ct3d3m2gbijd7k36knkfk.apps.googleusercontent.com";
 
 const LoginForm: React.FC<LoginFormProps> = ({ onLoginSuccess }) => {
     const [username, setUsername] = useState('');
@@ -49,6 +53,16 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLoginSuccess }) => {
         setPassword(event.target.value);
     };
 
+    useEffect(() => {
+        function start() {
+            gapi.client.init({
+                clientId: clientId,
+                scope: '',
+            });
+        }
+        gapi.load('client:auth2', start);
+    }, []);
+
     return (
         <form onSubmit={handleSubmit}>
             <div>
@@ -72,6 +86,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLoginSuccess }) => {
                 </label>
             </div>
             <button type="submit">Login</button>
+            <LoginButton />
         </form>
     );
 };

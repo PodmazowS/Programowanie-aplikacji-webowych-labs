@@ -10,6 +10,8 @@ import LoginForm from "./components/LoginForm";
 import { AuthProvider } from "./AuthContext";
 import ProtectedRoute from "./components/ProtectedRoute";
 
+
+
 const App: React.FC = () => {
   return (
     <AuthProvider>
