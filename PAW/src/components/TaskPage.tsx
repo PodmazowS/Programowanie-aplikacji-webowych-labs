@@ -111,57 +111,59 @@ const TaskPage: React.FC = () => {
                 </select>
                 <button className="btn">Add Task</button>
             </form>
-            <div className="kanban-board">
                 <div className="kanban-column">
-                    <h2>To Do:</h2>
-                    {filteredTasks.filter(task => task.state === "todo").map(task => (
+                    <div className='kanban-columns'>
+                        <div className="status-title">Todo:</div>
+                        {filteredTasks.filter(task => task.state === "todo").map(task => (
                         <div key={task.id} className="task-item">
-                            <h3>{task.name}</h3>
-                            <p>{task.description}</p>
-                            <p>Priority: {task.priority}</p>
-                            <p>Estimated Time: {task.estimatedTime}</p>
-                            <p>State: {task.state}</p>
-                            <button onClick={() => handleStatusChange(task.id, task.state === "todo" ? "doing" : "done")}>
-                                {task.state === "todo" ? "Start" : "Finish"}
-                            </button>
-                            <button onClick={() => handleDelete(task.id)}>Delete</button>
-                        </div>
-                    ))}
-                </div>
-                <div className="kanban-column">
-                    <h2>Doing:</h2>
-                    {filteredTasks.filter(task => task.state === "doing").map(task => (
+                        <h3>{task.name}</h3>
+                        <p>{task.description}</p>
+                        <p>Priority: {task.priority}</p>
+                        <p>Estimated Time: {task.estimatedTime}</p>
+                        <p>State: {task.state}</p>
+                        <button onClick={() => handleStatusChange(task.id, task.state === "todo" ? "doing" : "done")}>
+                            {task.state === "todo" ? "Start" : "Finish"}
+                        </button>
+                        <button onClick={() => handleDelete(task.id)}>Delete</button>
+                    </div>
+                        ))}
+                    </div>
+                    <div className='kanban-columns'>
+                        <div className="status-title">Doing:</div>
+                        {filteredTasks.filter(task => task.state === "doing").map(task => (
                         <div key={task.id} className="task-item">
-                            <h3>{task.name}</h3>
-                            <p>{task.description}</p>
-                            <p>Priority: {task.priority}</p>
-                            <p>Estimated Time: {task.estimatedTime}</p>
-                            <p>State: {task.state}</p>
-                            <button onClick={() => handleStatusChange(task.id, task.state === "todo" ? "doing" : "done")}>
-                                {task.state === "todo" ? "Start" : "Finish"}
-                            </button>
-                            <button onClick={() => handleDelete(task.id)}>Delete</button>
-                        </div>
-                    ))}
-                </div>
-                <div className="kanban-column">
-                    <h2>Done:</h2>
-                    {filteredTasks.filter(task => task.state === "done").map(task => (
+                        <h3>{task.name}</h3>
+                        <p>{task.description}</p>
+                        <p>Priority: {task.priority}</p>
+                        <p>Estimated Time: {task.estimatedTime}</p>
+                        <p>State: {task.state}</p>
+                        <button onClick={() => handleStatusChange(task.id, task.state === "todo" ? "doing" : "done")}>
+                            {task.state === "todo" ? "Start" : "Finish"}
+                        </button>
+                        <button onClick={() => handleDelete(task.id)}>Delete</button>
+                    </div>
+                        ))}
+                    </div>
+                    <div className='kanban-columns'>
+                        <div className="status-title">Done:</div>
+                        {filteredTasks.filter(task => task.state === "done").map(task => (
                         <div key={task.id} className="task-item">
-                            <h3>{task.name}</h3>
-                            <p>{task.description}</p>
-                            <p>Priority: {task.priority}</p>
-                            <p>Estimated Time: {task.estimatedTime}</p>
-                            <p>State: {task.state}</p>
-                            <button onClick={() => handleStatusChange(task.id, task.state === "todo" ? "doing" : "done")}>
-                                {task.state === "todo" ? "Start" : "Finish"}
-                            </button>
-                            <button onClick={() => handleDelete(task.id)}>Delete</button>
-                        </div>
-                    ))}
+                        <h3>{task.name}</h3>
+                        <p>{task.description}</p>
+                        <p>Priority: {task.priority}</p>
+                        <p>Estimated Time: {task.estimatedTime}</p>
+                        <p>State: {task.state}</p>
+                        <button onClick={() => handleStatusChange(task.id, task.state === "todo" ? "doing" : "done")}>
+                            {task.state === "todo" ? "Start" : "Finish"}
+                        </button>
+                        <button onClick={() => handleDelete(task.id)}>Delete</button>
+                    </div>
+                        ))}
+                    </div>
                 </div>
-            </div>
-            <Link to={`/projects/${story?.projectId}`}>Back to Project</Link>
+                
+            
+            <Link to={`/projects/${story?.projectId}`} className="btn back-btn">Back to Project</Link>
         </div>
     );
 }
