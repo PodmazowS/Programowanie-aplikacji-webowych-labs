@@ -1,0 +1,147 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f8f9fa;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #343a40;
+  color: white;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.header .nav-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.header a, .header button {
+  color: white;
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  text-decoration: none;
+  padding: 20px;
+}
+
+.header a:hover, .header button:hover {
+  color: #ddd;
+}
+
+
+.project-form {
+  background: #fff;
+  padding: 20px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  border-radius: 8px;
+}
+
+.project-form .form-group {
+  margin-bottom: 15px;
+}
+
+.project-form label {
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.project-form input,
+.project-form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.project-form textarea {
+  height: 100px;
+  resize: vertical; 
+}
+
+.project-form .btn {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.project-form .btn:hover {
+  background-color: #0056b3;
+}
+
+.project-list {
+  margin-top: 20px;
+}
+
+.project-item {
+  background: #fff;
+  padding: 20px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.project-item h3 {
+  margin-top: 0;
+}
+
+.project-item .btn {
+  margin-top: 10px;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.project-item .view-btn {
+  background-color: #28a745;
+  color: white;
+}
+
+.project-item .view-btn:hover {
+  background-color: #218838;
+}
+
+.project-item .edit-btn {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.project-item .edit-btn:hover {
+  background-color: #0056b3;
+}
+
+.project-item .delete-btn {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.project-item .delete-btn:hover {
+  background-color: #c82333;
+}
+
+.google-logout-btn {
+    width: 10%;
+    color: white;
+    padding: 5px;
+    font-size: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

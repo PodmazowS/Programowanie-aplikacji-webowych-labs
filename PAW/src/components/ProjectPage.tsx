@@ -6,6 +6,7 @@ import UserSession from "../api/UserSession";
 import { Project } from "../models/Project";
 import { Story } from "../models/Story";
 import { User } from "../models/User";
+import "../styles/projectForm.css";
 
 const ProjectPage: React.FC = () => {
   const { projectId } = useParams<{ projectId: string }>();
@@ -109,7 +110,7 @@ const ProjectPage: React.FC = () => {
           <h2>Project Stories</h2>
           <form onSubmit={handleStorySubmit}>
             <input name="name" value={newStory.name} onChange={handleStoryChange} placeholder="Story Name" />
-            <textarea name="description" value={newStory.description} onChange={handleStoryChange} placeholder="Description" />
+            <textarea name="description" style={{height: "50px", resize: "vertical" }} value={newStory.description} onChange={handleStoryChange} placeholder="Description" />
             <select name="priority" value={newStory.priority} onChange={handleStoryChange}>
               <option value="low">Low</option>
               <option value="medium">Medium</option>

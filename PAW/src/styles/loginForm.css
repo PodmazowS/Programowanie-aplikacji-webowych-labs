@@ -1,0 +1,68 @@
+.formDesign {
+    max-width: 350px;
+    padding: 40px;
+    margin: 200px auto;
+    border-radius: 8px;
+    text-align: center;
+  }
+  
+  .formDesign label {
+    display: block;
+    text-align: left;
+    margin-bottom: 5px;
+    color: #333;
+    font-size: 14px;
+    font-style: normal;
+  }
+  
+  .inputDesign {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 20px;
+  }
+  
+  .buttonDesign {
+    width: 70%;
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .googleLogin {
+    margin-top: 20px;
+  }
+  
+
+  .googleLogin button {
+    width: 50%;
+    background-color: #DB4437;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  .rememberMe {
+    text-align: left;
+    margin-bottom: 10px;
+  }
+  
+  .link {
+    color: #007BFF;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 12px;
+  }
+  
+  .link:hover {
+    text-decoration: underline;
+  }
+  

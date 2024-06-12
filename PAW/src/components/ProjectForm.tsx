@@ -1,13 +1,16 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect, } from "react";
+import useNavigate, { Link } from "react-router-dom";
 import ProjectStorage from "../api/localStorageAPI";
 import { Project } from "../models/Project";
 import LogoutButton from "./GoogleLogout";
+import "../styles/projectForm.css";
+import { GoogleLogout } from "react-google-login";
 
 
 const ProjectForm: React.FC = () => {
   const [project, setProject] = useState<Project>({ id: "", name: "", description: "" });
   const [projects, setProjects] = useState<Project[]>([]);
+  
   
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -44,10 +47,15 @@ const ProjectForm: React.FC = () => {
   }, []);
 
   return (
-    <div>
-      <h2>
-        <Link to="/users">User List</Link>
-      </h2>
+    <div className="container">
+      <div className="header">
+        <div className="nav-buttons">
+          <Link to="/users">User List</Link>
+          <div className="google-logout-btn">
+          <LogoutButton />
+          </div>
+        </div>
+      </div>
       <div className="project-form">
         <form onSubmit={handleSubmit}>
           <div className="form-group">
@@ -81,13 +89,12 @@ const ProjectForm: React.FC = () => {
           <div className="project-item" key={project.id}>
             <h3>{project.name}</h3>
             <p>{project.description}</p>
-            <Link to={`/projects/${project.id}`}>View Project</Link>
             <button onClick={() => handleEdit(project)} className="btn edit-btn">Edit</button>
             <button onClick={() => handleDelete(project.id)} className="btn delete-btn">Delete</button>
+            <Link to={`/projects/${project.id}`}>View Project</Link>
           </div>
         ))}
       </div>
-      <LogoutButton />
     </div>
   );
 };

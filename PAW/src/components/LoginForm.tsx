@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { gapi} from "gapi-script";
 import LoginButton from './GoogleLogin';
+import '../styles/loginForm.css';
 
 interface LoginFormProps {
     onLoginSuccess?: (data: { token: string; refreshToken: string }) => void;
@@ -64,29 +65,28 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLoginSuccess }) => {
     }, []);
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="formDesign">
             <div>
-                <label>
-                    Username:
-                    <input
-                        type="text"
-                        value={username}
-                        onChange={handleUsernameChange}
-                    />
-                </label>
+                <label>User name</label>
+                <input
+                    value={username}
+                    onChange={handleUsernameChange}
+                    className="inputDesign"
+                />
             </div>
             <div>
-                <label>
-                    Password:
-                    <input
-                        type="password"
-                        value={password}
-                        onChange={handlePasswordChange}
-                    />
-                </label>
+                <label>Password</label>
+                <input
+                    type="password"
+                    value={password}
+                    onChange={handlePasswordChange}
+                    className="inputDesign"
+                />
             </div>
-            <button type="submit">Login</button>
-            <LoginButton />
+            <button type="submit" className="buttonDesign">Sign in</button>
+            <div className="googleLogin">
+                <LoginButton />
+            </div>
         </form>
     );
 };

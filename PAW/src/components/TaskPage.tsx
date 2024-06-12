@@ -102,7 +102,7 @@ const TaskPage: React.FC = () => {
             <h2>Tasks for Story: {story?.name}</h2>
             <form onSubmit={handleTaskSubmit} className="task-input-form">
                 <input name="name" value={newTask.name} onChange={handleTaskChange} placeholder="Task Name"/>
-                <textarea name="description" value={newTask.description} onChange={handleTaskChange} placeholder="Description" />
+                <textarea name="description" style={{height: "50px", resize: "vertical" }} value={newTask.description} onChange={handleTaskChange} placeholder="Description" />
                 <input type="datetime-local" name="estimatedTime" value={newTask.estimatedTime} onChange={handleTaskChange} />
                 <select name="priority" value={newTask.priority} onChange={handleTaskChange} >
                     <option value="low">Low</option>
