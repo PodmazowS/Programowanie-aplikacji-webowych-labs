@@ -102,9 +102,9 @@ const TaskPage: React.FC = () => {
             <h2>Tasks for Story: {story?.name}</h2>
             <form onSubmit={handleTaskSubmit} className="task-input-form">
                 <input name="name" value={newTask.name} onChange={handleTaskChange} placeholder="Task Name"/>
-                <textarea name="description" style={{height: "50px", resize: "vertical" }} value={newTask.description} onChange={handleTaskChange} placeholder="Description" />
-                <input type="datetime-local" name="estimatedTime" value={newTask.estimatedTime} onChange={handleTaskChange} />
-                <select name="priority" value={newTask.priority} onChange={handleTaskChange} >
+                <textarea name="description" style={{height: "50px", resize: "vertical", width: "871px" }} value={newTask.description} onChange={handleTaskChange} placeholder="Description" />
+                <input type="datetime-local" name="estimatedTime" value={newTask.estimatedTime} onChange={handleTaskChange} style={{width: "860px" }} />
+                <select name="priority" value={newTask.priority} onChange={handleTaskChange} style={{width: "878px" }}>
                     <option value="low">Low</option>
                     <option value="medium">Medium</option>
                     <option value="high">High</option>
@@ -116,8 +116,8 @@ const TaskPage: React.FC = () => {
                         <div className="status-title">Todo:</div>
                         {filteredTasks.filter(task => task.state === "todo").map(task => (
                         <div key={task.id} className="task-item">
-                        <h3>{task.name}</h3>
-                        <p>{task.description}</p>
+                        <h3>Task Name: {task.name}</h3>
+                        <p>Description: {task.description}</p>
                         <p>Priority: {task.priority}</p>
                         <p>Estimated Time: {task.estimatedTime}</p>
                         <p>State: {task.state}</p>
@@ -132,8 +132,8 @@ const TaskPage: React.FC = () => {
                         <div className="status-title">Doing:</div>
                         {filteredTasks.filter(task => task.state === "doing").map(task => (
                         <div key={task.id} className="task-item">
-                        <h3>{task.name}</h3>
-                        <p>{task.description}</p>
+                        <h3>Task Name: {task.name}</h3>
+                        <p>Description: {task.description}</p>
                         <p>Priority: {task.priority}</p>
                         <p>Estimated Time: {task.estimatedTime}</p>
                         <p>State: {task.state}</p>
@@ -148,8 +148,8 @@ const TaskPage: React.FC = () => {
                         <div className="status-title">Done:</div>
                         {filteredTasks.filter(task => task.state === "done").map(task => (
                         <div key={task.id} className="task-item">
-                        <h3>{task.name}</h3>
-                        <p>{task.description}</p>
+                        <h3>Task Name: {task.name}</h3>
+                        <p>Description: {task.description}</p>
                         <p>Priority: {task.priority}</p>
                         <p>Estimated Time: {task.estimatedTime}</p>
                         <p>State: {task.state}</p>

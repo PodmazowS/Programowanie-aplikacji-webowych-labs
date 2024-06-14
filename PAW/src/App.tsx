@@ -1,5 +1,5 @@
 // src/App.tsx
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import ProjectForm from "./components/ProjectForm";
 import ProjectPage from "./components/ProjectPage";
@@ -9,11 +9,18 @@ import UserPage from "./components/UserPage";
 import LoginForm from "./components/LoginForm";
 import { AuthProvider } from "./AuthContext";
 import ProtectedRoute from "./components/ProtectedRoute";
+import { ThemeContext } from "./styles/themeContext";
 
 
 
 const App: React.FC = () => {
+  const [theme, setTheme] = useState('light');
+
+  const toggleTheme = () => {
+    setTheme(theme === 'light' ? 'dark' : 'light');
+  };
   return (
+    <ThemeContext.Provider value={{ theme, toggleTheme }}>
     <AuthProvider>
       <Router>
         <Routes>
@@ -26,6 +33,7 @@ const App: React.FC = () => {
         </Routes>
       </Router>
     </AuthProvider>
+    </ThemeContext.Provider>
   );
 };
 

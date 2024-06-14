@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../AuthContext';
 import { GoogleLogout } from 'react-google-login';
+import "../styles/projectForm.css";
 
 const clientId = "157406340808-mi8iup8abk3ct3d3m2gbijd7k36knkfk.apps.googleusercontent.com";
 
@@ -20,6 +21,7 @@ function Logout() {
                 clientId={clientId}
                 buttonText="Logout"
                 onLogoutSuccess={onSuccess}
+                className='logout-btn'
             />
         </div>
     );

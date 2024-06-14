@@ -1,16 +1,18 @@
-import React, { useState, useEffect, } from "react";
-import useNavigate, { Link } from "react-router-dom";
+import React, { useState, useEffect, useContext, } from "react";
+import { Link } from "react-router-dom";
 import ProjectStorage from "../api/localStorageAPI";
 import { Project } from "../models/Project";
 import LogoutButton from "./GoogleLogout";
 import "../styles/projectForm.css";
-import { GoogleLogout } from "react-google-login";
+import { ThemeContext } from "../styles/themeContext";
 
 
 const ProjectForm: React.FC = () => {
   const [project, setProject] = useState<Project>({ id: "", name: "", description: "" });
   const [projects, setProjects] = useState<Project[]>([]);
-  
+  const { theme, toggleTheme } = useContext(ThemeContext);
+
+
   
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -47,10 +49,11 @@ const ProjectForm: React.FC = () => {
   }, []);
 
   return (
-    <div className="container">
+    <div className={`container ${theme}`}>
       <div className="header">
         <div className="nav-buttons">
           <Link to="/users">User List</Link>
+          <button onClick={toggleTheme} >Toggle Dark/White Mode</button>
           <div className="google-logout-btn">
           <LogoutButton />
           </div>
@@ -66,6 +69,7 @@ const ProjectForm: React.FC = () => {
               value={project.name}
               onChange={handleChange}
               placeholder="Project Name"
+              style={{ width: "582px" }}
             />
           </div>
           <div className="form-group">
@@ -76,9 +80,10 @@ const ProjectForm: React.FC = () => {
               value={project.description}
               onChange={handleChange}
               placeholder="Description"
+              style={{height: "50px", resize: "vertical", width: "582px" }}
             />
           </div>
-          <button type="submit" className="btn">
+          <button type="submit" className="savebtn">
             {project.id ? "Update Project" : "Save Project"}
           </button>
         </form>
@@ -87,11 +92,11 @@ const ProjectForm: React.FC = () => {
         {projects.length === 0 && <p>No projects available.</p>}
         {projects.map(project => (
           <div className="project-item" key={project.id}>
-            <h3>{project.name}</h3>
-            <p>{project.description}</p>
+            <h3>Project Name: {project.name}</h3>
+            <p>Description: {project.description}</p>
             <button onClick={() => handleEdit(project)} className="btn edit-btn">Edit</button>
             <button onClick={() => handleDelete(project.id)} className="btn delete-btn">Delete</button>
-            <Link to={`/projects/${project.id}`}>View Project</Link>
+            <Link to={`/projects/${project.id}`} className="btnt to-btn">View Project</Link>
           </div>
         ))}
       </div>

@@ -1,15 +1,13 @@
-body {
-  font-family: 'Arial', sans-serif;
-  background-color: #f8f9fa;
+body, html {
+  height: 100%;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+  background-color: #f8f9fa;
 }
-
-.container {
-  width: 80%;
-  margin: 0 auto;
-  padding: 20px;
+.container{
+ min-height: 100vh;
 }
 
 .header {
@@ -18,7 +16,6 @@ body {
   align-items: center;
   background-color: #343a40;
   color: white;
-  border-radius: 8px;
   margin-bottom: 20px;
 }
 
@@ -115,7 +112,7 @@ body {
 }
 
 .project-item .view-btn:hover {
-  background-color: #218838;
+  background-color: #212b88;
 }
 
 .project-item .edit-btn {
@@ -137,11 +134,34 @@ body {
 }
 
 .google-logout-btn {
-    width: 10%;
+    width: auto;
+    height: auto;
     color: white;
-    padding: 5px;
+    padding: 10px 20px;
+    display: inline-block;
     font-size: 16px;
-    display: flex;
     justify-content: space-between;
-    align-items: center;
+    margin-left: 0%;
+}
+.to-btn {
+  background-color: #28a745;
+  width: auto;
+  height: auto;
+  font-size: 14px;
+  display: inline-block;
+  margin-left: 50%;
+}
+.btnt {
+  display: inline-block;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  color: #fff;
+  text-align: center;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+}
+.logout-btn {
+  margin-left: 950%;
 }
